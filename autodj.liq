@@ -10,7 +10,7 @@ normalized = normalize(with_jingles)
 crossfaded = crossfade(normalized)
 
 # Live DJ stream (fallible)
-live_dj = input.http("http://localhost:8001/live.mp3")
+live_dj = ifallback([input.http("http://localhost:8001/live.mp3"), blank()])
 
 # Use fallback to ensure reliability
 radio = fallback(track_sensitive=false, [live_dj, crossfaded])
