@@ -1,3 +1,4 @@
+settings.init.allow_root := true
 # Load music playlist
 music = playlist("playlist.txt")
 
